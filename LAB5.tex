@@ -1,0 +1,209 @@
+%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\renewcommand\familydefault{\rmdefault}
+\usepackage{tgheros}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[utf8]{vietnam}
+\usepackage[unicode]{hyperref}
+
+\usepackage{geometry}
+\geometry{total={210mm,297mm},
+left=25mm,right=25mm,%
+bindingoffset=0mm, top=22mm,bottom=25mm}
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\setlength{\headheight}{20pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(15,10)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Ho Chi Minh City, University of Technology}\\
+		\textbf{\bf \ttfamily Department of Computer Science and Engineer}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Application Based Internet of Things - LAB5}
+
+\rfoot{Trang \thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\renewcommand{\footrulewidth}{0.2pt}
+%
+
+
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+HO CHI MINH CITY, UNIVERSITY OF TECHNOLOGY \\
+DEPARTMENT OF COMPUTER SCIENCE AND ENGINEER
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{2cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+%\multicolumn{1}{c}{\textbf{{\Large BÁO CÁO BÀI TẬP LỚN}}}
+\multicolumn{1}{c}{\textbf{{\Large Application Based Internet of Things Report - LAB 5}}}
+
+
+
+~~\\
+
+\\
+\multicolumn{1}{l}{\textbf{{\Large}}}\\
+\\
+\textbf{{\Large}}\\
+
+\\
+\\
+
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{5.1cm} 
+&\textit{Student: } & Student Name\\
+&\textit{ID: } & 123456 \\
+
+\end{tabular}
+\end{table}
+\vspace{3cm}
+\begin{center}
+{\footnotesize HỒ CHÍ MINH CITY}
+\end{center}
+\end{titlepage}
+
+%\thispagestyle{empty}
+\renewcommand{\contentsname}{Content}
+\newpage
+\vspace{1cm}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+In this lab, students are supposed to implement an advanced feature for your IoT Gateway. Proposed options are decribed in following subsections.
+
+\subsection{Stop and Wait Protocol}
+Every communications in an IoT application should follow the Stop and Wait protocol. However, because of the Thingsboard server, some connections are impossible to apply this protocol, such as the connection betwen the python gateway and the Thingsboard server.\\
+
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=5in]{PIC_LAB4/bbc_iot_4.PNG}
+    \caption{\textit{Structure of the wireless sensor network}}
+    \label{}
+\end{figure}
+
+However, there are 2 connections can be improved by the Stop and Wait, which are the connection between the main Microbit and the Python gateway (connected by serial) and the wireless communications between the Microbit sensors and the main Microbit. Students can improve one of them.
+
+\subsection{Simple AI Inference}
+A PC webcam can be used as an advanced sensor in your system. A simple AI model can be implemented at the gateway and the detected results are uploaded to Thingsboard server, then displayed on the Dashboard. \\
+
+A reference for simple AI manual can be found in the link following (focus on the first 3 chapters):
+
+\begin{center}
+    \url{https://drive.google.com/file/d/1d-VGlM5m\_jFh9WkA38kg6v0o8zmF85v5/view}
+\end{center}
+
+
+
+\newpage
+\section{Report}
+
+Please explain your solution in this report and provide the source code by a shareable link from MakeCode or github.\\ 
+
+For the first option, explain the state machine, which is used to implement the Stop and Wait protocol.
+
+\end{document}
